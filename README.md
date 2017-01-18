@@ -1,7 +1,7 @@
 # Pi Server
 A simple http webserver for raspberry pi
 
-Pi Controller (the android client app) is [available on google play](https://github.com/digital-synapse/rpi-simple-webserver)!
+Pi Controller (the android client app) is [available on google play](https://play.google.com/store/apps/details?id=com.dscode.picontroller)!
 
 ## Installation
 
