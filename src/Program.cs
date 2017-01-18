@@ -23,6 +23,8 @@ namespace rpi_gpio_webserver
 
             // run forever (not sure how else to keep service alive when starting from init.d!)
             while (true) { Thread.Sleep(10); }
+            cmdService.Stop();
+            gpioService.Stop();
         }
 
 
