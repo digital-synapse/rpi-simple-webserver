@@ -5,7 +5,7 @@ Pi Controller (the android client app) is [available on google play](https://git
 
 ## Installation
 
-Install the latest version of (raspian jessie)[https://www.raspberrypi.org/downloads/raspbian/] on the PI
+Install the latest version of [raspian jessie](https://www.raspberrypi.org/downloads/raspbian/) on the PI
 install mono: 
 > sudo apt-get install mono-complete
 
