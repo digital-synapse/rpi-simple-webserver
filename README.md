@@ -1,4 +1,5 @@
-# Pi Server
+# ![Pi Server](https://lh3.googleusercontent.com/j6swc1MJU11Tm7CadhqdLzHagWu9zyvNuTm-oaANR71dmd2YmU3wKPIGOFNKkC2wT4L8=w150-rw)
+
 A simple http webserver for raspberry pi
 
 Pi Controller (the android client app) is [available on google play](https://play.google.com/store/apps/details?id=com.dscode.picontroller)!
