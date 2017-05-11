@@ -10,10 +10,10 @@ namespace rpi_gpio_webserver
 {
     public class WebServer
     {
-        private readonly HttpListener _listener = new HttpListener();
-        private readonly Func<HttpListenerRequest, string> _responderMethod;
+        private HttpListener _listener = new HttpListener();
+        private Func<HttpListenerRequest, string> _responderMethod;
 
-        public WebServer(string[] prefixes, Func<HttpListenerRequest, string> method)
+        private void init(string[] prefixes, Func<HttpListenerRequest, string> method)
         {
             if (!HttpListener.IsSupported)
                 throw new NotSupportedException(
@@ -35,17 +35,18 @@ namespace rpi_gpio_webserver
             _listener.Start();
         }
 
-        public WebServer(Func<HttpListenerRequest, string> method, params string[] prefixes)
-            : this(prefixes, method) { }
-
-        public WebServer(Func<HttpListenerRequest, string> method, string route) : this(new[] { $"http://{Utils.GetLocalIPv4()}:80{Utils.FormatRoute(route)}" }, method) { }
-
+        public WebServer(Func<HttpListenerRequest, string> method, string route) 
+        {
+            this.name = Utils.FormatRoute(route);
+            init(new[] { $"http://{Utils.GetLocalIPv4()}:80/{name}/" }, method);            
+        }
+        private string name;
 
         public void Run()
         {
             ThreadPool.QueueUserWorkItem((o) =>
             {
-                Console.WriteLine("Webserver running...");
+                Console.WriteLine(name + " service running...");
                 try
                 {
                     while (_listener.IsListening)

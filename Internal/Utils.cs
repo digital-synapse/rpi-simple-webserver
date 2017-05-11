@@ -42,8 +42,10 @@ namespace rpi_gpio_webserver
 
         public static string FormatRoute(string route)
         {
-            if (!route.StartsWith("/")) route = "/" + route;
-            if (!route.EndsWith("/")) route = route + "/";
+            if (route.StartsWith("/")) route = route.Substring(1);
+            if (route.EndsWith("/")) route = route.Substring(0, route.Length - 1);
+            //if (!route.StartsWith("/")) route = "/" + route;
+            //if (!route.EndsWith("/")) route = route + "/";
             return route;
         }
     }
